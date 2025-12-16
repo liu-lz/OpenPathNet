@@ -191,7 +191,7 @@ OpenPathNet/
 │   │   └── raytracing_manager.py # Ray-tracing manager
 │   ├── visualization/            # Visualization module
 │   │   └── heatmap_generator.py  # Heatmap generation
-│   ├── CLItool/                  # CLI implementation module based on [geo2sigmap](https://github.com/functions-lab/geo2sigmap)
+│   ├── CLItool/                  # CLI implementation module based on geo2sigmap
 │   ├── coordinate_generator.py   # Coordinate generator
 │   ├── scene_manager.py          # Scene manager
 │   ├── batch_processor.py        # Batch processor
