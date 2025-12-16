@@ -1,6 +1,6 @@
 # OpenPathNet: An Open-Source RF Multipath Data Generator for AI-Driven Wireless Systems
 
-OpenPathNet is an open-source toolkit for automatically generating radio-frequency (RF) environment scenes and running ray-tracing simulations. It can fetch real-world geographic data from OpenStreetMap (OSM), build 3D digital-twin scenes, and run high-performance ray-tracing simulations with NVIDIA Sionna (0.19.2).
+OpenPathNet is an open-source toolkit accompanied by a publicly released dataset for automatically generating radio-frequency (RF) environment scenes and running ray-tracing simulations. It can fetch real-world geographic data from OpenStreetMap (OSM), build 3D digital-twin scenes, and run high-performance ray-tracing simulations with NVIDIA Sionna (0.19.2).
 
 ## Dataset Access
 
