@@ -164,7 +164,7 @@ python scripts/run_raytracing.py --gpu-mode auto
 python scripts/run_raytracing.py --scene-pattern "beijing" --max-scenes 5
 ```
 
-### 3. Use the CLI Tool (advanced scene generation, generated environment files are saved under data/output)
+### 3. Use the CLI Tool (advanced scene generation based on [geo2sigmap](https://github.com/functions-lab/geo2sigmap), generated environment files are saved under data/output)
 
 ```bash
 # Define a scene using a bounding box
@@ -306,6 +306,7 @@ This project is licensed under the Apache-2.0 License. For details, see the [LIC
 - [Blender](https://www.blender.org/) - Blender
 - [Open3D](http://www.open3d.org/) - 3D data processing
 - [Mitsuba](https://www.mitsuba-renderer.org/) - renderer
+- [geo2sigmap](https://github.com/functions-lab/geo2sigmap) - 
 
 ---
 
