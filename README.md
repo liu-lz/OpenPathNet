@@ -246,7 +246,10 @@ OpenPathNet uses a YAML configuration file (default location: `configs/regions_c
 
 ```bash
 # Use OSM retry mode, increase the number of attempts and the search radius
-python scripts/generate_scenes.py     --generation-mode osm_retry     --max-osm-attempts 20     --search-radius-km 5.0
+python scripts/generate_scenes.py \
+    --generation-mode osm_retry \
+    --max-osm-attempts 20 \
+    --search-radius-km 5.0
 ```
 
 ### Q2: What should I do if GPU memory is insufficient?
@@ -306,7 +309,7 @@ This project is licensed under the Apache-2.0 License. For details, see the [LIC
 - [Blender](https://www.blender.org/) - Blender
 - [Open3D](http://www.open3d.org/) - 3D data processing
 - [Mitsuba](https://www.mitsuba-renderer.org/) - renderer
-- [geo2sigmap](https://github.com/functions-lab/geo2sigmap) - 
+- [geo2sigmap](https://github.com/functions-lab/geo2sigmap) - provides the CLI Tool implementation
 
 ---
 
