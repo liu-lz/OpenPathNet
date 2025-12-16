@@ -4,7 +4,7 @@ OpenPathNet is an open-source toolkit accompanied by a publicly released dataset
 
 ## Dataset Access
 
-- **Link 1 (about 3,000 128 m × 128 m scenes from three real cities, default configuration, no randomized scenes)**: [Download link](https://huggingface.co/datasets/liu-lz/OpenPathNet)
+- **Link 1 (about 2,000 128 m × 128 m scenes from three real cities, default configuration, no randomized scenes)**: [Download link](https://huggingface.co/datasets/liu-lz/OpenPathNet)
 - **Link 2 (10 cities, about 1,000 128 m × 128 m scenes per city, mostly real scenes with randomized fallback on failure)**: [Download link](https://pan.ustc.edu.cn/share/index/3edb8705dc4b4ae49f04)  
   For detailed instructions, generation configurations, and checksum/verification information, please refer to the documentation included in the dataset.
 
@@ -186,13 +186,12 @@ scenegen point \
 ```
 OpenPathNet/
 ├── src/                          # Source code
-│   ├── scene_generation/         # Core module for scene generation
-│   │   ├── core.py               # Scene class and core scene-generation logic
-│   │   ├── cli.py                # Command-line interface
-│   │   └── utils.py              # Utility functions
 │   ├── raytracer/                # Ray-tracing module
 │   │   ├── sionna_raytracer.py   # Wrapper for the Sionna ray tracer
 │   │   └── raytracing_manager.py # Ray-tracing manager
+│   ├── visualization/            # Visualization module
+│   │   └── heatmap_generator.py  # Heatmap generation
+│   ├── CLItool/                  # CLI implementation module based on [geo2sigmap](https://github.com/functions-lab/geo2sigmap)
 │   ├── coordinate_generator.py   # Coordinate generator
 │   ├── scene_manager.py          # Scene manager
 │   ├── batch_processor.py        # Batch processor
@@ -207,7 +206,7 @@ OpenPathNet/
 ├── configs/                      # Configuration files
 │   └── regions_config.yaml       # Region and system configuration
 ├── data/                         # Data directory
-│   ├── scenes/                   # Generated scene files (includes example data for 5 real-city scenes)
+│   ├── scenes/                   # Generated scene files (includes example data for 3 real-city scenes)
 │   └── raytracing_results/       # Ray-tracing results (includes example results for the corresponding scenes)
 ├── logs/                         # Log directory (includes example logs for the corresponding scenes)
 ├── openpathnet-cpu.yml           # Conda environment config (CPU)
