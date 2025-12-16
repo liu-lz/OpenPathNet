@@ -1,0 +1,16 @@
+numpy
+pandas
+matplotlib
+tqdm
+psutil
+sionna
+pyyaml
+tensorflow
+scipy
+osmnx>=2.0.0
+pyproj
+shapely
+rasterio
+pillow
+open3d
+triangle
