@@ -1,0 +1,401 @@
+# Ray tracing scene generation configuration file
+
+# Default region configuration
+default_region:
+    name: "Los Angeles Downtown"
+    center_lat: 34.052235
+    center_lon: -118.243683
+    radius_km: 20.0
+    description: "Downtown Los Angeles (DTLA and surrounding high-density areas)"
+
+# Scene generation configuration
+scene_generation:
+  # Basic parameters
+  num_scenes: 1000
+  size_x: 130  # Scene size in X direction (meters)
+  size_y: 130  # Scene size in Y direction (meters)
+  
+  # Generation mode configuration
+  generation_mode: "osm_retry"  # "fallback" or "osm_retry"
+  
+  # OSM retry mode parameters
+  osm_retry:
+    max_attempts: 10        # Maximum number of attempts
+    search_radius_km: 3.0   # Search radius (kilometers)
+    timeout_seconds: 300    # Timeout per OSM generation attempt (seconds)
+    fallback_to_random: false  # Whether to fall back to random generation after OSM failure, true/false
+  
+  # Random scene generation parameters
+  random_scene:
+    building_count_range: [6, 12]  # Range of building counts
+    building_size_range: [15, 25]  # Building size range (meters)
+    building_height_range: [20, 50] # Building height range (meters)
+    min_building_distance: 25      # Minimum building spacing (meters)
+
+# Sionna ray tracing configuration
+raytracing:
+  # Basic parameters
+  engine: "sionna"                     # Ray tracing engine
+  max_parallel_jobs: 4                 # Maximum parallel jobs
+  timeout_per_scene: 300              # Timeout per scene (seconds)
+  
+  # GPU configuration
+  gpu_config:
+    gpu_mode: "auto"                   # "auto", "all", "cpu_only", or specific GPU IDs like "0,1"
+    memory_limit_mb: 8192              # GPU memory limit (MB)
+    enable_memory_growth: true         # Enable memory growth
+  
+  # Input/output configuration
+  input:
+    scene_file_pattern: "scene.xml"    # Scene filename pattern
+    auto_discover: true                # Automatically discover scene files
+  
+  output:
+    results_subdir: "raytracing_results"  # Results subdirectory
+    save_csv: true                        # Save as CSV
+    save_pickle: true                     # Save as Pickle
+    save_deepmimo: true                   # Save as DeepMIMO format
+    save_visualizations: true             # Save visualization plots
+  
+  # Receiver grid configuration
+  receiver_grid:
+    grid_size: 128                     # Grid size (128x128)
+    center: [0, 0, 1.5]               # Grid center coordinates
+    area_size: 128                    # Coverage area size (meters)
+    height: 1.0                       # Receiver height (meters)
+    indoor_filter: true               # Filter indoor points
+    
+  # Transmitter configuration
+  transmitter:
+    position: [0, 0, 30]              # Transmitter position [x, y, z]
+    orientation: [-1.57, 0, 0]        # Transmitter orientation (radians) [210° converted] [-1 * (210 - 90) / 180 * np.pi, 0, 0]
+    power_watts: 1                    # Transmit power
+    
+  # Antenna array configuration
+  antenna:
+    tx_array:
+      num_rows: 1
+      num_cols: 1
+      vertical_spacing: 0.5
+      horizontal_spacing: 0.5
+      pattern: "iso"                  # Omnidirectional
+      polarization: "V"               # Vertical polarization
+    
+    rx_array:
+      num_rows: 1
+      num_cols: 1
+      vertical_spacing: 0.5
+      horizontal_spacing: 0.5
+      pattern: "dipole"               # Dipole
+      polarization: "V"               # Vertical polarization
+  
+  # Ray tracing parameters
+  simulation:
+    frequency: 3.66e9                 # Carrier frequency (Hz)
+    max_depth: 3                      # Maximum reflection depth
+    ray_samples: 90000               # Number of ray samples
+    diffraction: true                 # Enable diffraction
+    scattering: true                  # Enable scattering
+    scat_keep_prob: 0.001            # Scattering keep probability
+    synthetic_array: true             # Synthetic array optimization
+    save_gain: false                  # Save raw path gain
+    top_k_paths: 5                    # Save top K paths per receiver point
+    
+  # Batch processing configuration
+  batch_processing:
+    rx_batch_size: 2000              # Receivers per batch
+    batch_pause: 0.5                 # Pause between batches (seconds)
+    memory_cleanup_interval: 3        # Memory cleanup interval (batches)
+    auto_adjust_batch_size: true      # Auto-adjust batch size based on memory
+    inter_scene_pause: 1.5            # Pause between scenes (seconds)
+
+# Data storage configuration
+data_storage:
+  base_data_dir: "data"
+  scenes_subdir: "scenes"
+  mesh_subdir: "mesh"
+  logs_dir: "logs"
+  
+# Logging configuration
+logging:
+  log_file: "logs/scene_generation.log"
+  log_level: "INFO"
+
+# Visualization configuration
+visualization:
+  enabled: true  # Enable heatmap generation
+  point_size: 50  # Point size for scatter plots
+  dpi: 300  # Image resolution
+
+# Predefined region list
+regions:
+  hefei:
+    name: "Hefei Urban Area"
+    center_lat: 31.8382919
+    center_lon: 117.2555553
+    radius_km: 20.0
+    description: "Downtown Hefei, Anhui Province"
+    
+  beijing:
+    name: "Beijing Urban Area"
+    center_lat: 39.89607
+    center_lon: 116.39192
+    radius_km: 20.0
+    description: "Central Beijing"
+    
+  shanghai:
+    name: "Shanghai Urban Area"
+    center_lat: 31.22771
+    center_lon: 121.45358
+    radius_km: 20.0
+    description: "Central Shanghai"
+    
+  guangzhou:
+    name: "Guangzhou Urban Area"
+    center_lat: 23.1291
+    center_lon: 113.2644
+    radius_km: 20.0
+    description: "Central Guangzhou, Guangdong Province"
+    
+  shenzhen:
+    name: "Shenzhen Urban Area"
+    center_lat: 22.543096
+    center_lon: 114.057865
+    radius_km: 15.0
+    description: "Central Shenzhen (Futian/Luohu/Nanshan high-density business and residential districts)"
+
+  chengdu:
+    name: "Chengdu Urban Area"
+    center_lat: 30.572269
+    center_lon: 104.066541
+    radius_km: 15.0
+    description: "Central Chengdu (Tianfu Square/Chunxi Road high-density downtown)"
+
+  hangzhou:
+    name: "Hangzhou Urban Area"
+    center_lat: 30.274085
+    center_lon: 120.155070
+    radius_km: 15.0
+    description: "Central Hangzhou (West Lake/Wushan commercial dense zone)"
+
+  wuhan:
+    name: "Wuhan Urban Area"
+    center_lat: 30.592850
+    center_lon: 114.305540
+    radius_km: 15.0
+    description: "Central Wuhan (Jianghan Road/Wuchang dense downtown)"
+
+  xian:
+    name: "Xi'an Urban Area"
+    center_lat: 34.341573
+    center_lon: 108.939770
+    radius_km: 15.0
+    description: "Central Xi'an (Bell Tower/Muslim Quarter surrounding dense area)"
+
+  nanjing:
+    name: "Nanjing Urban Area"
+    center_lat: 32.060255
+    center_lon: 118.796877
+    radius_km: 15.0
+    description: "Central Nanjing (Xinjiekou CBD and historic downtown)"
+
+  chongqing:
+    name: "Chongqing City Center"
+    center_lat: 29.563010
+    center_lon: 106.551560
+    radius_km: 15.0
+    description: "Core of Yuzhong District, Chongqing (Jiefangbei/Chaotianmen high-density downtown)"
+
+  tianjin:
+    name: "Tianjin Urban Area"
+    center_lat: 39.084158
+    center_lon: 117.200983
+    radius_km: 15.0
+    description: "Dense downtown around Heping District/Tianjin Station"
+
+  hongkong:
+    name: "Hong Kong Central"
+    center_lat: 22.281989
+    center_lon: 114.158798
+    radius_km: 8.0
+    description: "Hong Kong Central and Kowloon Tsim Sha Tsui (high-rise cluster)"
+
+  singapore:
+    name: "Singapore Marina/Central Area"
+    center_lat: 1.283000
+    center_lon: 103.860000
+    radius_km: 8.0
+    description: "Singapore CBD/Marina Bay high-density urban area"
+
+  tokyo:
+    name: "Tokyo Urban Area (Shinjuku/Shibuya)"
+    center_lat: 35.689487
+    center_lon: 139.691706
+    radius_km: 15.0
+    description: "Tokyo bustling districts (Shinjuku/Shibuya/Ikebukuro high-density downtown)"
+
+  osaka:
+    name: "Osaka Urban Area (Umeda/Namba)"
+    center_lat: 34.693738
+    center_lon: 135.502165
+    radius_km: 12.0
+    description: "Osaka core business district (Umeda/Namba)"
+
+  seoul:
+    name: "Seoul Urban Area (Gangnam/Downtown)"
+    center_lat: 37.566535
+    center_lon: 126.977969
+    radius_km: 15.0
+    description: "Central Seoul (City Hall/Myeongdong/Gangnam business dense area)"
+
+  london:
+    name: "London Urban Area (City Center)"
+    center_lat: 51.507351
+    center_lon: -0.127758
+    radius_km: 15.0
+    description: "Central London (West End/City of London dense downtown)"
+
+  paris:
+    name: "Paris Urban Area (City Center)"
+    center_lat: 48.856613
+    center_lon: 2.352222
+    radius_km: 15.0
+    description: "Central Paris (Hôtel de Ville/Louvre/Champs-Élysées vicinity)"
+
+  berlin:
+    name: "Berlin Urban Area"
+    center_lat: 52.520008
+    center_lon: 13.404954
+    radius_km: 15.0
+    description: "Central Berlin (Mitte/downtown dense area)"
+
+  new_york:
+    name: "New York City (Manhattan)"
+    center_lat: 40.758896
+    center_lon: -73.985130
+    radius_km: 12.0
+    description: "Manhattan, New York (Times Square/Midtown high-density area)"
+
+  los_angeles:
+    name: "Los Angeles Downtown"
+    center_lat: 34.052235
+    center_lon: -118.243683
+    radius_km: 20.0
+    description: "Downtown Los Angeles (DTLA and surrounding high-density areas)"
+
+  san_francisco:
+    name: "San Francisco Urban Area"
+    center_lat: 37.774929
+    center_lon: -122.419416
+    radius_km: 12.0
+    description: "San Francisco (downtown/financial district and dense residential areas)"
+
+  toronto:
+    name: "Toronto Downtown"
+    center_lat: 43.653225
+    center_lon: -79.383186
+    radius_km: 15.0
+    description: "Toronto, Canada (downtown and financial district)"
+
+  mexico_city:
+    name: "Mexico City Center"
+    center_lat: 19.432608
+    center_lon: -99.133209
+    radius_km: 15.0
+    description: "Plaza de la Constitución/historic center dense area, Mexico City"
+
+  sao_paulo:
+    name: "São Paulo City Center"
+    center_lat: -23.550520
+    center_lon: -46.633308
+    radius_km: 15.0
+    description: "São Paulo downtown (dense city center and business district)"
+
+  mumbai:
+    name: "South Mumbai (Business District)"
+    center_lat: 19.075983
+    center_lon: 72.877655
+    radius_km: 15.0
+    description: "South Mumbai (financial and commercial dense area)"
+
+  delhi:
+    name: "New Delhi (Connaught Place)"
+    center_lat: 28.613939
+    center_lon: 77.209023
+    radius_km: 15.0
+    description: "Core Delhi (Connaught Place and administrative vicinity)"
+
+  istanbul:
+    name: "Istanbul Old City"
+    center_lat: 41.008238
+    center_lon: 28.978359
+    radius_km: 15.0
+    description: "Istanbul (Sultanahmet/Taksim dense area)"
+
+  moscow:
+    name: "Moscow City Center"
+    center_lat: 55.755825
+    center_lon: 37.617298
+    radius_km: 15.0
+    description: "Moscow (Red Square/core dense area)"
+
+  boston:
+    name: "Boston Downtown"
+    center_lat: 42.360100
+    center_lon: -71.058900
+    radius_km: 12.0
+    description: "Boston, MA financial/historic core"
+
+  miami:
+    name: "Miami Downtown"
+    center_lat: 25.761681
+    center_lon: -80.191788
+    radius_km: 12.0
+    description: "Miami, FL CBD and waterfront high-density area"
+
+# Material configuration
+materials:
+  itu_concrete:
+    id: "mat-itu_concrete"
+    reflectance: [0.539479, 0.539479, 0.53948]
+    description: "ITU standard concrete material"
+    
+  itu_marble:
+    id: "mat-itu_marble"
+    reflectance: [0.701101, 0.644479, 0.48515]
+    description: "ITU standard marble material"
+    
+  itu_metal:
+    id: "mat-itu_metal"
+    reflectance: [0.219526, 0.219526, 0.254152]
+    description: "ITU standard metal material"
+    
+  itu_wood:
+    id: "mat-itu_wood"
+    reflectance: [0.043, 0.58, 0.184]
+    description: "ITU standard wood material"
+    
+  itu_wet_ground:
+    id: "mat-itu_wet_ground"
+    reflectance: [0.91, 0.569, 0.055]
+    description: "ITU standard wet ground material"
+
+# Mitsuba rendering configuration
+mitsuba_config:
+  version: "2.1.0"
+  integrator:
+    type: "path"
+    max_depth: 12
+  
+  camera:
+    type: "perspective"
+    fov: 42.854885
+    position: [0, 0, 100]
+    
+  film:
+    width: 1024
+    height: 768
+    
+  sampler:
+    type: "independent"
+    sample_count: 4096

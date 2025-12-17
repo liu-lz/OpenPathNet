@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rf-scene-generator"
+version = "0.1.0"
+description = "RF scene generation and raytracing pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "rf-scene-generator contributors" }]
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "tqdm",
+    "psutil",
+    "sionna==0.19.2",
+    "PyYAML",
+    "tensorflow==2.15.*",
+    "scipy",
+    "osmnx>=2.0.0",
+    "pyproj",
+    "shapely",
+    "rasterio",
+    "pillow",
+    "open3d",
+    "triangle",
+]
+
+[project.scripts]
+generate_scenes = "scripts.generate_scenes:main"
+cleanup = "scripts.cleanup:main"
+run_raytracing = "scripts.run_raytracing:main"
+scenegen = "CLItool.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

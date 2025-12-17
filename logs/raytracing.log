@@ -1,0 +1,29 @@
+2025-12-17 09:51:46,029 - rf_scene_generator - INFO - Single-scene timeout: 300s
+2025-12-17 09:51:46,029 - rf_scene_generator - INFO - Minimum samples ratio: 0.50
+2025-12-17 09:51:46,029 - rf_scene_generator - INFO - Inter-scene pause: 1.50s
+2025-12-17 09:51:46,031 - rf_scene_generator - INFO - Heatmap generator enabled
+2025-12-17 09:51:46,031 - rf_scene_generator - INFO - Found 3 available scenes
+2025-12-17 09:51:46,031 - rf_scene_generator - INFO - Starting ray tracing, scene count: 3
+2025-12-17 09:51:46,031 - rf_scene_generator - INFO - Engine: sionna
+2025-12-17 09:51:46,032 - rf_scene_generator - INFO - GPU mode: auto
+2025-12-17 09:51:46,032 - rf_scene_generator - INFO - Frequency: 3.66 GHz
+2025-12-17 09:51:46,032 - rf_scene_generator - INFO - Max parallel jobs: 4
+2025-12-17 09:51:46,032 - rf_scene_generator - INFO - Starting batch ray tracing, total scenes: 3, concurrency limit: 4
+2025-12-17 09:51:46,045 - rf_scene_generator - INFO - Available GPUs: ['0'], fixed concurrency per round: 1
+2025-12-17 09:51:46,047 - rf_scene_generator - INFO - Started subprocess for scene scene_33.934784_-118.168892, GPU: 0
+2025-12-17 09:53:28,619 - rf_scene_generator - INFO - Generated heatmaps for scene scene_33.934784_-118.168892
+2025-12-17 09:53:30,121 - rf_scene_generator - INFO - Started subprocess for scene scene_33.949393_-118.182020, GPU: 0
+2025-12-17 09:55:36,950 - rf_scene_generator - INFO - Generated heatmaps for scene scene_33.949393_-118.182020
+2025-12-17 09:55:38,452 - rf_scene_generator - INFO - Started subprocess for scene scene_34.025879_-118.144931, GPU: 0
+2025-12-17 09:57:34,982 - rf_scene_generator - INFO - Generated heatmaps for scene scene_34.025879_-118.144931
+2025-12-17 09:57:36,483 - rf_scene_generator - INFO - Batch ray tracing completed!
+2025-12-17 09:57:36,483 - rf_scene_generator - INFO - Total scenes: 3
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Success: 3, Failure: 0
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Total time: 291.7s, Avg time: 97.2s
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Batch results saved to: data/raytracing_results/batch_raytracing_results.json
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Statistics report saved to: data/raytracing_results/raytracing_stats.txt
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Ray tracing completed! Success: 3/3
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO - Successfully processed scenes:
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO -   scene_33.934784_-118.168892: 84.4s, 12178 receivers, 58586 paths
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO -   scene_33.949393_-118.182020: 108.9s, 12262 receivers, 60645 paths
+2025-12-17 09:57:36,493 - rf_scene_generator - INFO -   scene_34.025879_-118.144931: 98.4s, 12054 receivers, 59218 paths
