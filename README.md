@@ -8,6 +8,8 @@ OpenPathNet is an open-source toolkit accompanied by a publicly released dataset
 - **Link 2 (10 cities, about 1,000 128 m × 128 m scenes per city, mostly real scenes with randomized fallback on failure)**: [Download link](https://pan.ustc.edu.cn/share/index/3edb8705dc4b4ae49f04)  
   For detailed instructions, generation configurations, and checksum/verification information, please refer to the documentation included in the dataset.
 
+**For the data organization produced by this generator and the detailed formats of key files (e.g., XML, NPY), please refer to the README in Dataset Link 1 on Hugging Face:**  <https://huggingface.co/datasets/liu-lz/OpenPathNet>
+
 ## Citation
 
 If you find OpenPathNet useful for your research, please consider citing this paper:
