@@ -1,0 +1,24 @@
+Scene generation statistics report
+==================================================
+Requested scene count: 3
+Successfully generated scenes: 3
+Failed scene count: 0
+Success rate: 100.0%
+Center coordinates: (34.052235, -118.243683)
+Generation radius: 20.0 km
+Scene size: 130x130 meters
+Generation mode: osm_retry
+
+Scene type statistics:
+OSM scenes: 3 (100.0%)
+Random scenes: 0 (0.0%)
+
+OSM retry statistics:
+Configured max attempts: 10
+Configured search radius: 3.0 km
+Average attempts: 1.0
+Average offset distance: 0.00 km
+Total attempts: 3
+
+Attempts distribution:
+  1 times: 3 scenes

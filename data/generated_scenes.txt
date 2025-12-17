@@ -1,0 +1,13 @@
+# Generated scene list
+# Total: 3/3
+# Generation time: 2025年 12月 17日 星期三 09:50:16 CST
+# Center coordinates: (34.052235, -118.243683)
+# Generation radius: 20.0 km
+# Scene size: 130x130 meters
+# Generation mode: osm_retry
+# OSM retry params: max attempts 10, search radius 3.0km
+
+# Format: scene_file_path	original_lat	original_lon	actual_lat	actual_lon	generation_type	attempts	offset_distance(km)
+data/scenes/scene_33.949393_-118.182020/scene.xml	33.949393	-118.182020	33.949393	-118.182020	OSM	1	0.00
+data/scenes/scene_34.025879_-118.144931/scene.xml	34.025879	-118.144931	34.025879	-118.144931	OSM	1	0.00
+data/scenes/scene_33.934784_-118.168892/scene.xml	33.934784	-118.168892	33.934784	-118.168892	OSM	1	0.00
