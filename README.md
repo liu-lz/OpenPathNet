@@ -14,14 +14,14 @@ OpenPathNet is an open-source toolkit accompanied by a publicly released dataset
 
 If you find OpenPathNet useful for your research, please consider citing this paper:
 
-**L. Liu, X. Chen, and W. Zhang, “OpenPathNet: An Open-Source RF Multipath Data Generator for AI-Driven Wireless Systems,” *arXiv preprint arXiv:2512.*, 2025.**
+**L. Liu, X. Chen, and W. Zhang, “OpenPathNet: An Open-Source RF Multipath Data Generator for AI-Driven Wireless Systems,” *arXiv preprint arXiv:2512.17286*, 2025.**
 
 BibTeX:
 ```bibtex
 @article{liu2025openpathnet,
   title={OpenPathNet: An Open-Source RF Multipath Data Generator for AI-Driven Wireless Systems},
   author={Liu, L. and Chen, X. and Zhang, W.},
-  journal={arXiv preprint arXiv:2512.},
+  journal={arXiv preprint arXiv:2512.17286},
   year={2025}
 }
 ```
