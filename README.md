@@ -21,13 +21,7 @@ BibTeX:
 @article{liu2025openpathnet,
   title={OpenPathNet: An Open-Source RF Multipath Data Generator for AI-Driven Wireless Systems},
   author={Liu, L. and Chen, X. and Zhang, W.},
-  journal={arXiv preprint arXiv:2512.17286
-        
-        
-        
-        
-        
-        },
+  journal={arXiv preprint arXiv:2512.17286},
   year={2025}
 }
 ```
